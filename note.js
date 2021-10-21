@@ -3,7 +3,7 @@ const express = require('express');
 const { notes } = require('./libs/notes');
 
 // Use routes
-const apiRoutes = require('./routes/apiRoutes');
+const apiRoutes = require('./routes/apiRoutes/notesRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
 
 const PORT = process.env.PORT || 3001;
