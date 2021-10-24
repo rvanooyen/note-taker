@@ -15,8 +15,6 @@ router.get('/notes', (req, res) => {
 });
 
 router.post('/notes', (req, res) => {
-    console.log(req.body);
-    console.log(notes);
     req.body.id = notes.length.toString();
           
     if (!validateNote(req.body)) {
@@ -26,5 +24,15 @@ router.post('/notes', (req, res) => {
       res.json(note);
     }
   });
+
+router.delete('/notes/:id', (req, res) => {
+    const id = req.params;
+
+    const noteIndex = notes.findIndex(p => p.id == id);
+
+    notes.splice(noteIndex, 1);
+
+    res.send(id);
+});
 
   module.exports = router;
